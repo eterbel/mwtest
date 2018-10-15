@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Created by PhpStorm.
  * User: errei
@@ -8,9 +9,9 @@
 
 namespace Mwtest\TaxIncomeCalculator;
 
-use Mwtest\TaxIncomeCalculator\TaxIncomCalculatorInterface;
+use Mwtest\TaxIncomeCalculator\TaxIncomeCalculatorInterface;
 
-class TaxIncomeCalculator implements TaxIncomCalculatorInterface
+class TaxIncomeCalculator implements TaxIncomeCalculatorInterface
 {
     protected $ratios;
 
@@ -44,6 +45,7 @@ class TaxIncomeCalculator implements TaxIncomCalculatorInterface
     public function calculateAnnualTax(float $income): float
     {
         // TODO: Implement calculateAnnualTax() method.
+        return 0.0;
     }
 
 

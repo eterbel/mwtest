@@ -1,7 +1,7 @@
 <?php
 namespace Mwtest\TaxIncomeCalculator;
 
-Interface TaxIncomCalculatorInterface
+Interface TaxIncomeCalculatorInterface
 {
     /**
      * @param array the rules to calculate
