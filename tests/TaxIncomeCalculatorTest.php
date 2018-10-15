@@ -13,7 +13,7 @@ use Mwtest\TaxIncomeCalculator\TaxIncomeCalculator;
 
 class TaxIncomeCalculatorTest extends TestCase
 {
-    protected $ratios = [[0,0.05],[50000000,0.15],[250000000,0.25],[500000000,0.3]];
+    protected $ratios = [[0, 0.05], [50000000, 0.15], [250000000, 0.25], [500000000, 0.3]];
 
     public function testFirstExampleResultIsValid(): void
     {
@@ -31,5 +31,12 @@ class TaxIncomeCalculatorTest extends TestCase
             170000000.0,
             $calculator->calculateAnnualTax(750000000.0)
         );
+    }
+
+    public function testRatioRulesAreNotValid(): void
+    {
+        $this->expectException(Exception::class);
+
+        $calculator = new TaxIncomeCalculator([1, 2, 3]);
     }
 }

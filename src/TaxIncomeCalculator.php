@@ -30,7 +30,7 @@ class TaxIncomeCalculator implements TaxIncomeCalculatorInterface
      */
     public function setRatios(array $ratios = array()): void
     {
-        $this->ratios = $ratios;
+        $this->ratios = $this->validateRatios($ratios);
     }
 
     /**
@@ -76,6 +76,23 @@ class TaxIncomeCalculator implements TaxIncomeCalculatorInterface
         }
 
         return $result;
+    }
+
+    /**
+     * Validate the format of the tax rules ratios
+     *
+     * @param array $ratios tax rules
+     * @return array return tax rules
+     * @throws \Exception when the rules aren't valid
+     */
+    protected function validateRatios(array $ratios): array
+    {
+        foreach($ratios as $ratio){
+            if (!(is_array($ratio) && sizeOf($ratio) == 2)){
+                throw new \Exception("Ratio rules aren't valid");
+            }
+        }
+        return $ratios;
     }
 
 
