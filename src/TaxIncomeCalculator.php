@@ -30,7 +30,7 @@ class TaxIncomeCalculator implements TaxIncomeCalculatorInterface
      */
     public function setRatios(array $ratios = array()): void
     {
-        // TODO: Implement setRatios() method.
+        $this->ratios = $ratios;
     }
 
     /**
@@ -38,7 +38,7 @@ class TaxIncomeCalculator implements TaxIncomeCalculatorInterface
      */
     public function getRatios(): array
     {
-        // TODO: Implement getRatios() method.
+        return $this->ratios;
     }
 
     /**
@@ -51,6 +51,7 @@ class TaxIncomeCalculator implements TaxIncomeCalculatorInterface
         //return 0.0;
 
         // Trivial implementation
+        /*
         if ($income == 75000000.0) {
             $result = 6250000.0;
         }
@@ -59,6 +60,19 @@ class TaxIncomeCalculator implements TaxIncomeCalculatorInterface
         }
         else {
             $result = 0.0;
+        }*/
+        for ($i=0; $i<sizeOf($this->ratios); $i++){
+            if ($income > $this->ratios[$i][0]){
+                if ($i < sizeOf($this->ratios) -1){
+                    $result += (min($income - $this->ratios[$i][0],$this->ratios[$i+1][0] - $this->ratios[$i][0]))*$this->ratios[$i][1];
+                }
+                else {
+                    $result += ($income - $this->ratios[$i][0])*$this->ratios[$i][1];
+                }
+            }
+            else  {
+                break;
+            }
         }
 
         return $result;
