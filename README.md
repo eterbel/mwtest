@@ -13,15 +13,21 @@ Write  a program in TDD  to calculate the annual income tax above.
 ## Methodology
 1. Define the service's functionalities <br/>
 A good way is define an interface to describe how works the service and implement an "empty" service from this interface
-2. Build the suite tests to coverage all the functionnalities and constraints about the service<br/>
-The tests are based from the interface definitions and, for the first run, normaly, the assertions failed because the business logical is not implemented
-3. Implement a first version of the service which basicly respond to the tests<br/>
+2. Build the suite tests to coverage all the functionalities and constraints about the service<br/>
+The tests are based from the interface definitions and, for the first run, normaly, the assertions failed because the business logic is not implemented
+3. Implement a first version of the service which basicly responds to the tests<br/>
 In these step, we implement trivial codes to success all the test assertions and so, to validate the test's coverage
-4. Implement a as good as version of the service<br/>
-We implement the good business logical and validate it by running the tests
+4. Implement the business logic of the service<br/>
+We implement the good business logic and validate it by running the tests
 5. Update tests and code if necessary
 
+Separate the tests stuff from the business code implementation is better to garanty the impartiality of the tests's coverage.
 ## Test code
+
 ```
 ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/TaxIncomeCalculatorTest
 ```
+
+## Conclusion
+First, sorry for my english !
+Next, I am not sure I have answered the question correctly. We should have implemented comprehension tests, but that becomes endless ...
