@@ -61,9 +61,10 @@ class TaxIncomeCalculator implements TaxIncomeCalculatorInterface
         else {
             $result = 0.0;
         }*/
-        for ($i=0; $i<sizeOf($this->ratios); $i++){
+        for ($i=0; $i<count($this->ratios); $i++){
+            list($level,$ratio) = $this->ratios[$i];
             if ($income > $this->ratios[$i][0]){
-                if ($i < sizeOf($this->ratios) -1){
+                if ($i < count($this->ratios) -1){
                     $result += (min($income - $this->ratios[$i][0],$this->ratios[$i+1][0] - $this->ratios[$i][0]))*$this->ratios[$i][1];
                 }
                 else {
